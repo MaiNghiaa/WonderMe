@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Aos from "aos";
 import * as XLSX from "xlsx";
 import { Alert } from "bootstrap";
+import moment from "moment";
+
 export default class Contact extends Component {
   myURL =
     "https://script.google.com/macros/s/AKfycbzjEj7HiZ-YbUFxIdatu_c_HRqQC0Qj1s_hJGTBY0OKblT8fxuk7iVcYNBxQoWInj73/exec";
@@ -103,6 +105,13 @@ export default class Contact extends Component {
                 method="post"
                 data-aos-delay={200}
               >
+                <input
+                  type="datetime"
+                  name="Date"
+                  id="Date"
+                  value={moment().format("MMMM Do YYYY, h:mm:ss a")}
+                  hidden
+                />
                 <div className="row gy-4">
                   <div className="col-md-6">
                     <input
