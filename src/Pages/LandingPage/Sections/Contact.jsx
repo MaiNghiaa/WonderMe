@@ -3,33 +3,8 @@ import Aos from "aos";
 import * as XLSX from "xlsx";
 import { Alert } from "bootstrap";
 import moment from "moment";
-
+import { HandleSubmit, getCurrentDateTime } from "../../../Secuity/FormData";
 export default class Contact extends Component {
-  myURL =
-    "https://script.google.com/macros/s/AKfycbzjEj7HiZ-YbUFxIdatu_c_HRqQC0Qj1s_hJGTBY0OKblT8fxuk7iVcYNBxQoWInj73/exec";
-  HandleSubmit = (e) => {
-    e.preventDefault();
-    console.log(e);
-    fetch(this.myURL, {
-      method: "POST",
-      body: new FormData(e.target),
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   }
-    })
-      .then((response) => {
-        if (response.ok) {
-          alert("Thank you for your message!");
-          e.target.reset(); //reset form
-        } else {
-          throw new Error("Network response was not ok.");
-        }
-      })
-      .catch((error) => {
-        console.error("There was an error submitting the form:", error);
-        alert("Sorry, an error occurred. Please try again later.");
-      });
-  };
   render() {
     return (
       <section id="contact" className="contact">
@@ -52,9 +27,7 @@ export default class Contact extends Component {
                   >
                     <i className="bi bi-geo-alt" />
                     <h3>Address</h3>
-                    <p style={{ whiteSpace: "nowrap" }}>
-                      Số 3, Ngách 42, Ngõ 113 Nguyễn Chính
-                    </p>
+                    <p>Số 3, Ngách 42, Ngõ 113 Nguyễn Chính</p>
                     <p>New York, NY 535022</p>
                   </div>
                 </div>
@@ -99,7 +72,7 @@ export default class Contact extends Component {
             <div className="col-lg-6">
               <form
                 action=""
-                onSubmit={this.HandleSubmit}
+                onSubmit={HandleSubmit}
                 className="Form"
                 data-aos="fade-up"
                 method="post"
@@ -109,7 +82,7 @@ export default class Contact extends Component {
                   type="datetime"
                   name="Date"
                   id="Date"
-                  value={moment().format("MMMM Do YYYY, h:mm:ss a")}
+                  value={getCurrentDateTime()}
                   hidden
                 />
                 <div className="row gy-4">
