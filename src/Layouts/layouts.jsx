@@ -1,8 +1,7 @@
 // Layout.js
 import React from "react";
 import Header from "./sections/Header";
-import Footer from "./Footer";
-
+import Footer from "./sections/Footer";
 const Layout = ({ children }) => {
   return (
     <div>
