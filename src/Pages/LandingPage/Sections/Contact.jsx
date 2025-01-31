@@ -3,7 +3,7 @@ import Aos from "aos";
 import * as XLSX from "xlsx";
 import { Alert } from "bootstrap";
 import moment from "moment";
-import { HandleSubmit, getCurrentDateTime } from "../../../Secuity/FormData";
+import { HandleSubmit, getCurrentDateTime } from "../../../Security/FormData";
 export default class Contact extends Component {
   render() {
     return (
